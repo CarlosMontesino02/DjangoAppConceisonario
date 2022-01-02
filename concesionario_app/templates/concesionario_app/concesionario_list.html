@@ -1,0 +1,32 @@
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td{
+        height: 30px;
+        width: 150px;
+    }
+</style>
+
+{% block content %}
+    <center><h1>Concesionarios</h1></center>
+    <center>
+    <ul>
+        {% for Concesionario in object_list %}
+            <table class="default">
+                <tr>
+                    <th>Concesionario</th>
+                    <th>Telefono</th>
+                    <th>Horario</th>
+                  </tr>
+                <tr>
+                    <td>{{ Concesionario.Ubicacion }}</td>
+                    <td>{{ Concesionario.TlfConce }}</td>
+                    <td>{{ Concesionario.Horario }}</td>
+                    <td><a href="info/{{ Concesionario.Ubicacion }}"></a>Ver oferta</td>
+                </tr>
+                <p></p>
+        {% endfor %}
+    </ul>
+    </center>
+{% endblock %}

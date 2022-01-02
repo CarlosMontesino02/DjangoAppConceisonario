@@ -1,0 +1,38 @@
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    
+    th, td{
+        height: 30px;
+        width: 150px;
+    }
+    </style>
+{% block content %}
+    <center><h1>Coches</h1></center>
+    <center>
+    <ul>
+        {% for coche in object_list %}
+            <table class="default">
+                <tr>
+                    <th>Marca</th>
+                    <th>Modelo</th>
+                    <th>Color</th>
+                    <th>Extras</th>
+                    <th>Precio</th>
+                    <th>Concesionario</th>
+                  </tr>
+                <tr>
+                    <td>{{ coche.Marca }}</td>
+                    <td>{{ coche.Modelo }}</td>
+                    <td>{{ coche.Color }}</td>
+                    <td>{{ coche.Extras }}</td>
+                    <td>{{ coche.precio }}</td>
+                    <td>{{ coche.Concesionarioco }}</td>
+                    <td><a href="info/{{ coche.Modelo }}">Ver</a></td>
+                </tr>
+                <p></p>
+        {% endfor %}
+    </ul>
+    </center>
+{% endblock %}
