@@ -12,7 +12,6 @@
     <center><h1>Coches</h1></center>
     <center>
     <ul>
-        {% for coche in object_list %}
             <table class="default">
                 <tr>
                     <th>Marca</th>
@@ -21,18 +20,23 @@
                     <th>Extras</th>
                     <th>Precio</th>
                     <th>Concesionario</th>
+                    <th>Descripción</th>
+                    <th>Foto</th>
                   </tr>
-                <tr>
-                    <td>{{ coche.Marca }}</td>
-                    <td>{{ coche.Modelo }}</td>
-                    <td>{{ coche.Color }}</td>
-                    <td>{{ coche.Extras }}</td>
-                    <td>{{ coche.precio }}</td>
-                    <td>{{ coche.Concesionarioco }}</td>
-                    <td><a href="info/{{ coche.Modelo }}">Ver</a></td>
-                </tr>
+                {% for coche in object_list %}
+                    <tr>
+                        <td>{{ coche.Marca }}</td>
+                        <td>{{ coche.Modelo }}</td>
+                        <td>{{ coche.Color }}</td>
+                        <td>{{ coche.Extras }}</td>
+                        <td>{{ coche.precio }}</td>
+                        <td>{{ coche.Concesionarioco }}</td>
+                        <td>{{ coche.descripcion }}</td>
+                        <td><img src="{{ coche.upload }}" alt="xD"></td>
+                        <td><a href="info/{{ coche.Modelo }}">Ver</a></td>
+                    </tr>
+                {% endfor %}
                 <p></p>
-        {% endfor %}
     </ul>
     </center>
 {% endblock %}
