@@ -12,21 +12,18 @@
     <center><h1>Concesionarios</h1></center>
     <center>
     <ul>
-        {% for Concesionario in object_list %}
-            <table class="default">
-                <tr>
-                    <th>Concesionario</th>
-                    <th>Telefono</th>
-                    <th>Horario</th>
-                  </tr>
-                <tr>
-                    <td>{{ Concesionario.Ubicacion }}</td>
-                    <td>{{ Concesionario.TlfConce }}</td>
-                    <td>{{ Concesionario.Horario }}</td>
-                    <td><a href="info/{{ Concesionario.Ubicacion }}"></a>Ver oferta</td>
+        <table class="default">
+            <tr>
+                <th>Usuario</th>
+                <th>Pedido</th>
                 </tr>
-                <p></p>
-        {% endfor %}
+                {% for carrito in object_list %}
+                    <tr>
+                    <td>{{ carrito.Usuario }}</td>
+                    <td>{{ carrito.Pedido }}</td>
+                </tr>
+                {% endfor %}
+            <p></p>
     </ul>
     </center>
 {% endblock %}
