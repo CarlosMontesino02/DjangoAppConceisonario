@@ -22,6 +22,8 @@ class Coche(models.Model):
     Extras = models.CharField(max_length=100)
     Stock = models.CharField(max_length=10)
     precio = models.DecimalField(max_digits=10, decimal_places=2)
+    upload = models.ImageField(upload_to ='uploads/')
+    descripcion  = models.CharField(max_length=300)
     def __str__(self):
         return self.Modelo
 
