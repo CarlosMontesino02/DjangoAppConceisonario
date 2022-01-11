@@ -12,21 +12,21 @@
     <center><h1>Concesionarios</h1></center>
     <center>
     <ul>
-        {% for Concesionario in object_list %}
             <table class="default">
                 <tr>
                     <th>Concesionario</th>
                     <th>Telefono</th>
                     <th>Horario</th>
                   </tr>
+            {% for Concesionario in object_list %}
                 <tr>
                     <td>{{ Concesionario.Ubicacion }}</td>
                     <td>{{ Concesionario.TlfConce }}</td>
                     <td>{{ Concesionario.Horario }}</td>
-                    <td><a href="info/{{ Concesionario.Ubicacion }}"></a>Ver oferta</td>
+                    <td><a href="info/{{ Concesionario.Ubicacion }}.html">Ver oferta</a></td>
                 </tr>
                 <p></p>
-        {% endfor %}
+            {% endfor %}
     </ul>
     </center>
 {% endblock %}
