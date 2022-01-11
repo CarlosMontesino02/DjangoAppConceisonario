@@ -8,4 +8,6 @@ class ofertadecoches(ListView):
 class concesionarios(ListView):
     model = Concesionario
 
+class carritos(ListView):
+    model = Carrito
 # Create your views here.
