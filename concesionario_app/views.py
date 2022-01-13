@@ -11,3 +11,6 @@ class concesionarios(ListView):
 class carritos(ListView):
     model = Carrito
 # Create your views here.
+
+def index (request):
+    return render(request, 'concesionario_app/index.html')
