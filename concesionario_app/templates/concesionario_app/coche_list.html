@@ -1,17 +1,21 @@
 <style>
     table, th, td {
       border: 1px solid black;
+      text-col
     }
-    
+
     th, td{
         height: 30px;
         width: 150px;
+        color:white;
     }
-    </style>
+</style>
 {% block content %}
-    <center><h1>Coches</h1></center>
+    <center><h1>OFERTA DE COCHES</h1></center>
+<body style="background-color:#9B1B00;">
     <center>
     <ul>
+                {% for coche in object_list %}
             <table class="default">
                 <tr>
                     <th>Marca</th>
@@ -20,10 +24,7 @@
                     <th>Extras</th>
                     <th>Precio</th>
                     <th>Concesionario</th>
-                    <th>Descripción</th>
-                    <th>Foto</th>
                   </tr>
-                {% for coche in object_list %}
                     <tr>
                         <td>{{ coche.Marca }}</td>
                         <td>{{ coche.Modelo }}</td>
@@ -31,12 +32,23 @@
                         <td>{{ coche.Extras }}</td>
                         <td>{{ coche.precio }}</td>
                         <td>{{ coche.Concesionarioco }}</td>
-                        <td>{{ coche.descripcion }}</td>
-                        <td><img src="{{ coche.upload }}" alt="xD"></td>
                         <td><a href="info/{{ coche.Modelo }}">Ver</a></td>
                     </tr>
+            </table>
+            <table>
+              <tr>
+                <th>Descripción</th>
+                <th>Foto</th>
+              </tr>
+              <tr>
+                <td>{{ coche.descripcion }}</td>
+                <td><img src="/media/{{ coche.upload }}" width="250" height="300"></td>
+              </tr>
+            </table>
+            <p>--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
                 {% endfor %}
                 <p></p>
     </ul>
     </center>
+</body>
 {% endblock %}
