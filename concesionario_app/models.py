@@ -33,3 +33,4 @@ class Carrito(models.Model):
     def __str__(self):
         return str(self.Usuario)
 # Create your models here.
+
