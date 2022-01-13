@@ -15,12 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from concesionario_app.views import carritos, ofertadecoches
+from concesionario_app.views import carritos, ofertadecoches, index
 from concesionario_app.views import concesionarios
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('coches/', ofertadecoches.as_view()),
-    path('concesionarios/', concesionarios.as_view()),
-    path('carritos/', carritos.as_view()),
-]
+    path('coches/', ofertadecoches.as_view(), name="coches"),
+    path('', index),
+    path('concesionarios/', concesionarios.as_view(), name="concesionarios"),
+    path('carritos/', carritos.as_view(), name="carrito"),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
