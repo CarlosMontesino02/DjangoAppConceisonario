@@ -1,29 +1,37 @@
 <style>
     table, th, td {
       border: 1px solid black;
+      color:white;
     }
     th, td{
         height: 30px;
         width: 150px;
     }
+    h1{
+        font-family: "Courier New";
+        color: black;
+    }
 </style>
-
 {% block content %}
-    <center><h1>Concesionarios</h1></center>
+<body style="background-color:#9B1B00;">
+    <center><h1>Carrito</h1></center>
     <center>
     <ul>
         <table class="default">
             <tr>
                 <th>Usuario</th>
-                <th>Pedido</th>
-                </tr>
+                <th>Pedidos</th>
+            </tr>
                 {% for carrito in object_list %}
-                    <tr>
+                <tr>
                     <td>{{ carrito.Usuario }}</td>
-                    <td>{{ carrito.Pedido }}</td>
+                    {% for pedido in carrito.Pedido.all %}
+                        <td>{{ pedido }}</td>
+                    {% endfor %}
                 </tr>
                 {% endfor %}
             <p></p>
     </ul>
     </center>
+</body>
 {% endblock %}
