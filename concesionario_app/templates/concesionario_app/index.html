@@ -1,0 +1,60 @@
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td{
+        height: 30px;
+        width: 150px;
+    }
+    .button {
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+    }
+    .button1 {
+      background-color: #4CAF50;
+      position: absolute;
+      } /* Green */
+    .botonmenu {background-color: black;}
+    .boxhead a {
+    color: #FFFFFF;
+    text-decoration: none;
+    }
+    h1{
+      text-align: center;
+      color: black;
+      font-family: "Courier New"
+    }
+</style>
+
+{% block content %}
+  <div class="botoncarrito">
+    <button class="button button1" style="float: right;">
+      <div class="boxhead">
+        <a href="{% url 'carrito' %}">Carrito</a>
+      </div>
+    </button>
+  </div>
+
+  <div class="titulo">
+    <header style="background-color:#9B1B00;">
+      <h1 style="text-align: center;">LEGENDARIOS MOTORSPORT</h1>
+    </header>
+  </div>
+
+<body style="background-color:#9B1B00;">
+  <div class="boxhead" style="text-align: center;">
+    <button class="botonmenu">
+        <a href="{% url 'coches' %}">VER NUESTROS COCHES</a>
+    </button>
+    <p></p>
+    <button class="botonmenu">
+        <a href="{% url 'concesionarios' %}">NUESTROS CONCESIONARIOS</a>
+    </button>
+  </div>
+</body>
+{% endblock %}
