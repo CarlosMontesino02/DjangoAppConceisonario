@@ -9,6 +9,7 @@
 </style>
 
 {% block content %}
+<body style="background-color:#9B1B00;">
     <center><h1>Concesionarios</h1></center>
     <center>
     <ul>
@@ -20,7 +21,7 @@
                   </tr>
             {% for Concesionario in object_list %}
                 <tr>
-                    <td>{{ Concesionario.Ubicacion }}</td>
+                    <td>{{ ConcUbicesionario.acion }}</td>
                     <td>{{ Concesionario.TlfConce }}</td>
                     <td>{{ Concesionario.Horario }}</td>
                     <td><a href="info/{{ Concesionario.Ubicacion }}.html">Ver oferta</a></td>
@@ -29,4 +30,5 @@
             {% endfor %}
     </ul>
     </center>
+</body>
 {% endblock %}
