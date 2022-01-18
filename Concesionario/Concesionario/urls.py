@@ -26,4 +26,5 @@ urlpatterns = [
     path('', index),
     path('concesionarios/', concesionarios.as_view(), name="concesionarios"),
     path('carritos/', carritos.as_view(), name="carrito"),
+    #path('accounts/', include('django.contrib.auth.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
