@@ -1,0 +1,39 @@
+<style>
+    table, th, td {
+      border: 1px solid black;
+      color:white;
+    }
+    th, td{
+        height: 30px;
+        width: 150px;
+    }
+    h1{
+        font-family: "Courier New";
+        color: black;
+    }
+</style>
+{% block content %}
+<body style="background-color:#9B1B00;">
+    <center><h1>Perfiles</h1></center>
+    <center>
+    <ul>
+        <table class="default">
+            <tr>
+                <th>Usuario</th>
+                <th>DNI</th>
+                <th>Telefono</th>
+                <th>Fecha de nacimiento</th>
+            </tr>
+                {% for Perfil in object_list %}
+                <tr>
+                    <td>{{ Perfil.user }}</td>
+                    <td>{{ Perfil.DNI }}</td>
+                    <td>{{ Perfil.NumTlf }}</td>
+                    <td>{{ Perfil.fechanac }}</td>
+                </tr>
+                {% endfor %}
+            <p></p>
+    </ul>
+    </center>
+</body>
+{% endblock %}
