@@ -2,11 +2,14 @@ from django.db import models
 from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.contrib.auth.models import User
 
-class Usuario(models.Model):
+class Perfil(models.Model):
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
     DNI = models.CharField(max_length=9)
-    NumTlf = models.IntegerField()
+    NumTlf = models.IntegerField(null=True, blank=True)
     Direccion = models.CharField(max_length=50)
+    fechanac = models.DateField(null=True, blank=True)
     def __str__(self):
         return self.DNI
 
@@ -30,7 +33,7 @@ class Coche(models.Model):
         return self.Modelo
 
 class Carrito(models.Model):
-    Usuario = models.ForeignKey(Usuario, on_delete=models.CASCADE)
+    Usuario = models.ForeignKey(Perfil, on_delete=models.CASCADE)
     Pedido = models.ManyToManyField(Coche)
     def __str__(self):
         return str(self.Usuario)
