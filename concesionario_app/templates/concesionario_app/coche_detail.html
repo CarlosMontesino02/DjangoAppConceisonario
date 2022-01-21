@@ -1,0 +1,50 @@
+<style>
+    th, td, tr{
+      border: 1px solid black;
+      text-col
+    }
+
+    th, td,{
+        height: 30px;
+        width: 150px;
+        color:white
+    }
+    </style>
+{% block content %}
+    <center><h1 style="font-family:">OFERTA DE COCHES</h1></center>
+<body style="background-color:#9B1B00;">
+    <center>
+    <ul>
+      <table class="default">
+          <tr>
+              <th>Marca</th>
+              <th>Modelo</th>
+              <th>Color</th>
+              <th>Extras</th>
+              <th>Precio</th>
+              <th>Concesionario</th>
+            </tr>
+              <tr>
+                  <td>{{ coche.Marca }}</td>
+                  <td>{{ coche.Modelo }}</td>
+                  <td>{{ coche.Color }}</td>
+                  <td>{{ coche.Extras }}</td>
+                  <td>{{ coche.precio }}</td>
+                  <td>{{ coche.Concesionarioco }}</td>
+              </tr>
+      </table>
+      <p></p>
+      <table>
+        <tr>
+          <th>Foto</th>
+          <th>Descripción</th>
+        </tr>
+        <tr>
+          <td><img src="/media/{{ coche.upload }}" width="250" height="300"></td>
+          <td>{{ coche.descripcion }}</td>
+        </tr>
+      </table>
+    </ul>
+    </center>
+</body>
+{% endblock %}

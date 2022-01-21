@@ -1,0 +1,24 @@
+<style>
+    table, th, td {
+      border: 1px solid black;
+      color:white;
+    }
+    th, td{
+        height: 30px;
+        width: 150px;
+    }
+    h1{
+        font-family: "Courier New";
+        color: black;
+    }
+</style>
+
+{% block content %}
+<body style="background-color:#9B1B00;">
+  <form method="post">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Submit">
+  </form>
+</body>
+{% endblock %}
