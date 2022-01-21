@@ -3,6 +3,7 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
+from django.urls import reverse
 
 class Perfil(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -37,4 +38,11 @@ class Carrito(models.Model):
     Pedido = models.ManyToManyField(Coche)
     def __str__(self):
         return str(self.Usuario)
+
+class Author(models.Model):
+    name = models.CharField(max_length=200)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def get_absolute_url(self):
+        return reverse('author-detail', kwargs={'pk': self.pk})
 # Create your models here.
