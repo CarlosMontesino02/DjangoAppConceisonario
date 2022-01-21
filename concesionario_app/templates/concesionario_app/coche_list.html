@@ -1,10 +1,10 @@
 <style>
-    table, th, td {
+    li,{
       border: 1px solid black;
       text-col
     }
 
-    th, td{
+    li,{
         height: 30px;
         width: 150px;
         color:white
@@ -15,39 +15,11 @@
 <body style="background-color:#9B1B00;">
     <center>
     <ul>
-                {% for coche in object_list %}
-            <table class="default">
-                <tr>
-                    <th>Marca</th>
-                    <th>Modelo</th>
-                    <th>Color</th>
-                    <th>Extras</th>
-                    <th>Precio</th>
-                    <th>Concesionario</th>
-                  </tr>
-                    <tr>
-                        <td>{{ coche.Marca }}</td>
-                        <td>{{ coche.Modelo }}</td>
-                        <td>{{ coche.Color }}</td>
-                        <td>{{ coche.Extras }}</td>
-                        <td>{{ coche.precio }}</td>
-                        <td>{{ coche.Concesionarioco }}</td>
-                        <td><a href="info/{{ coche.Modelo }}">Ver</a></td>
-                    </tr>
-            </table>
-            <table>
-              <tr>
-                <th>Descripción</th>
-                <th>Foto</th>
-              </tr>
-              <tr>
-                <td>{{ coche.descripcion }}</td>
-                <td><img src="/media/{{ coche.upload }}" width="250" height="300"></td>
-              </tr>
-            </table>
-            <p>--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------</p>
-                {% endfor %}
-                <p></p>
+      {% for coche in object_list %}
+      <li> <a href="{{ coche.id }}">{{ coche.Modelo }}</a></li>
+      {% empty %}
+      <li>No hay coches todavía.</li>
+      {% endfor %}
     </ul>
     </center>
 </body>
