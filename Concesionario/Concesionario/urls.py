@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from concesionario_app.views import carritos, ofertadecoches, index, perfiles
-from concesionario_app.views import concesionarios
+from concesionario_app.views import carritos, ofertadecoches, index, perfiles, concesionarios
+from concesionario_app.views import carritos_detalles, ofertadecoches_detalles, index, perfiles_detalles
+from concesionario_app.views import concesionarios_detalles
 from django.conf.urls.static import static
 from django.conf import settings
+from django.urls import path
+from concesionario_app.views import AuthorCreateView, AuthorDeleteView, AuthorUpdateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -27,4 +30,13 @@ urlpatterns = [
     path('concesionarios/', concesionarios.as_view(), name="concesionarios"),
     path('carritos/', carritos.as_view(), name="carrito"),
     path('perfiles/', perfiles.as_view(), name="perfiles"),
+    path('concesionarios_detalles/', concesionarios_detalles.as_view(), name="concesionarios_detalles"),
+    path('carritos_detalles/', carritos_detalles.as_view(), name="carrito_detalles"),
+    path('perfiles_detalles/', perfiles_detalles.as_view(), name="perfiles_detalles"),
+    #path('coches_detalles/', ofertadecoches_detalles.as_view(), name="coches_detalles"),
+    path('coches/<int:pk>/', ofertadecoches_detalles.as_view(), name='coches_detalles'),
+    path('author/', perfiles.as_view(), name="author"),
+    path('author/add/', AuthorCreateView.as_view(), name='author-add'),
+    path('author/<int:pk>/', AuthorUpdateView.as_view(), name='author-update'),
+    path('author/<int:pk>/delete/', AuthorDeleteView.as_view(), name='author-delete'),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
