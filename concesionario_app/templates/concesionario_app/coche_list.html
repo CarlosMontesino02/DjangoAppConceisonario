@@ -16,7 +16,9 @@
     <center>
     <ul>
       {% for coche in object_list %}
-      <li> <a href="{{ coche.id }}">{{ coche.Modelo }}</a></li>
+      <li> <a href="{{ coche.id }}">{{ coche.Modelo }}</a>
+          <a href="{% url 'coche-update' coche.pk %}">Modificar</a>
+      </li>
       {% empty %}
       <li>No hay coches todavía.</li>
       {% endfor %}
