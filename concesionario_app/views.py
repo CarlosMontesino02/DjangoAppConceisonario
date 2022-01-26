@@ -7,6 +7,22 @@ from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from concesionario_app.models import Author
 from django.views.generic import DetailView
+from django.views.generic.edit import FormView
+
+
+class cochecreateview(CreateView):
+    model = Coche
+    fields = ['Concesionarioco','Marca','Modelo','Color','Extras','precio','upload','descripcion']
+    success_url = reverse_lazy('coches')
+
+class cocheUpdateView(UpdateView):
+    model = Coche
+    fields = ['Concesionarioco','Marca','Modelo','Color','Extras','precio','upload','descripcion']
+
+class registro(CreateView):
+    model = Perfil
+    fields=['user','DNI','NumTlf','Direccion','fechanac']
+    success_url = reverse_lazy('perfiles')
 
 class ofertadecoches(ListView):
     model = Coche
