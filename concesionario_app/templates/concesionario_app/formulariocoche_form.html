@@ -1,0 +1,19 @@
+<style>
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td{
+        height: 30px;
+        width: 150px;
+    }
+</style>
+
+{% block content %}
+<body>
+  <h3>Añadir un cohe:</h3>
+  <form method="post">{% csrf_token %}
+      {{ form.as_p }}
+      <input type="submit" value="Guardar">
+  </form>
+</body>
+{% endblock %}
