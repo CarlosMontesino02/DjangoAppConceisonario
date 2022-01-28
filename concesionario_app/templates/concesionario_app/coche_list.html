@@ -1,22 +1,62 @@
-<style>
-    li,{
-      border: 1px solid black;
-      text-col
-    }
+<style type="text/css">
+#BarraHTML {
+background-color: #100000;
+    padding: 2px;
+    position: fixed;
+    width: 100%;
+z-index: 10000;
+}
+#BarraHTML ul{
+   list-style-type: none;
+}
+#BarraHTML li{
+   display: inline;
+   text-align: center;
+   margin: 0 0 0 0;
+}
+#BarraHTML li a {
+   padding: 2px 7px 7px 7px;
+   text-decoration: none;
+}
+#BarraHTML a{
+  color: white;
+}
+#BarraHTML li a:hover{
+   background-color: #333333;
+   color: #ffffff;
+}
+#texto{
+padding: 60px 0 0 0;
+}
+li,{
+  border: 1px solid black;
+  text-col
+}
 
-    li,{
-        height: 30px;
-        width: 150px;
-        color:white
-    }
-    </style>
+li,{
+    height: 30px;
+    width: 150px;
+    color:white
+}
+   </style>
 {% block content %}
+
+<body style="background-color:#9B1B00;">
+<div id="BarraHTML">
+<ul>
+<li><a href="{% url 'index' %}">Home</a></li>
+<li><a href="{% url 'coches' %}">Coches</a></li>
+<li><a href="{% url 'concesionarios' %}">Concesionarios</a></li>
+<li><a href="{% url 'perfiles' %}">Perfiles</a></li>
+<li><a href="{% url 'carrito' %}">Carritos</a></li>
+</ul>
+</div>
     <center><h1 style="font-family:">OFERTA DE COCHES</h1></center>
 <body style="background-color:#9B1B00;">
     <center>
     <ul>
       {% for coche in object_list %}
-      <li> <a href="{{ coche.id }}">{{ coche.Modelo }}</a>
+      <li style=" list-style-type: none; margin: 0; padding: 0"> <a href="{{ coche.id }}">{{ coche.Modelo }}</a>
           <a href="{% url 'coche-update' coche.pk %}">Modificar</a>
       </li>
       {% empty %}

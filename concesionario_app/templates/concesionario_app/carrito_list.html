@@ -1,18 +1,58 @@
-<style>
-    table, th, td {
-      border: 1px solid black;
-      color:white;
-    }
-    th, td{
-        height: 30px;
-        width: 150px;
-    }
-    h1{
-        font-family: "Courier New";
-        color: black;
-    }
-</style>
+<style type="text/css">
+#BarraHTML {
+background-color: #100000;
+    padding: 2px;
+    position: fixed;
+    width: 100%;
+z-index: 10000;
+}
+#BarraHTML ul{
+   list-style-type: none;
+}
+#BarraHTML li{
+   display: inline;
+   text-align: center;
+   margin: 0 0 0 0;
+}
+#BarraHTML li a {
+   padding: 2px 7px 7px 7px;
+   text-decoration: none;
+}
+#BarraHTML a{
+  color: white;
+}
+#BarraHTML li a:hover{
+   background-color: #333333;
+   color: #ffffff;
+}
+#texto{
+padding: 60px 0 0 0;
+}
+table, th, td {
+  border: 1px solid black;
+  color:white;
+}
+th, td{
+    height: 30px;
+    width: 150px;
+}
+h1{
+    font-family: "Courier New";
+    color: black;
+}
+   </style>
 {% block content %}
+
+<body style="background-color:#9B1B00;">
+<div id="BarraHTML">
+<ul>
+<li><a href="{% url 'index' %}">Home</a></li>
+<li><a href="{% url 'coches' %}">Coches</a></li>
+<li><a href="{% url 'concesionarios' %}">Concesionarios</a></li>
+<li><a href="{% url 'perfiles' %}">Perfiles</a></li>
+<li><a href="{% url 'carrito' %}">Carritos</a></li>
+</ul>
+</div>
 <body style="background-color:#9B1B00;">
     <center><h1>Carrito</h1></center>
     <center>
