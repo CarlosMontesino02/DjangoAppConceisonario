@@ -18,6 +18,17 @@ class cochecreateview(CreateView):
 class cocheUpdateView(UpdateView):
     model = Coche
     fields = ['Concesionarioco','Marca','Modelo','Color','Extras','precio','upload','descripcion']
+    success_url = reverse_lazy('coches')
+
+class concesionariocreateview(CreateView):
+    model = Concesionario
+    fields = ['ubicacion','tlfconce','horario','map']
+    success_url = reverse_lazy('concesionarios')
+
+class concesionarioUpdateView(UpdateView):
+    model = Concesionario
+    fields = ['ubicacion','tlfconce','horario','map']
+    success_url = reverse_lazy('concesionarios')
 
 class registro(CreateView):
     model = Perfil
@@ -51,20 +62,3 @@ class perfiles_detalles(DetailView):
 
 def index (request):
     return render(request, 'concesionario_app/index.html')
-
-class AuthorCreateView(CreateView):
-    model = Author
-    fields = ['name']
-
-
-    def form_valid(self, form):
-        form.instance.created_by = self.request.user
-        return super().form_valid(form)
-
-class AuthorUpdateView(UpdateView):
-    model = Author
-    fields = ['name']
-
-class AuthorDeleteView(DeleteView):
-    model = Author
-    success_url = reverse_lazy('author-list')
