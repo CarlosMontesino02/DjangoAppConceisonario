@@ -1,0 +1,42 @@
+<style>
+    th, td, tr{
+      border: 1px solid black;
+      text-col
+    }
+
+    th, td,{
+        height: 30px;
+        width: 150px;
+        color:white
+    }
+    </style>
+{% block content %}
+    <center><h1 style="font-family:">Concesionario</h1></center>
+<body style="background-color:#9B1B00;">
+    <center>
+    <ul>
+      <table class="default" frame="void" rules="cols" bgcolor="white">
+          <tr>
+              <th>Ubicación</th>
+              <th>Telefono</th>
+              <th>Horario</th>
+            </tr>
+              <tr>
+                  <td>{{ concesionario.ubicacion }}</td>
+                  <td>{{ concesionario.tlfconce }}</td>
+                  <td>{{ concesionario.horario }}</td>
+              </tr>
+      </table>
+      <p></p>
+      <table frame="void" rules="cols">
+        <tr>
+          <th>Foto</th>
+        </tr>
+        <tr>
+          <td><img src="/media/{{ concesionario.map }}" width="400" height="300"></td>
+        </tr>
+      </table>
+    </ul>
+    </center>
+</body>
+{% endblock %}

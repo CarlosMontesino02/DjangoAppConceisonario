@@ -1,33 +1,27 @@
 <style>
-    table, th, td {
+    li,{
       border: 1px solid black;
+      text-col
     }
-    th, td{
+
+    li,{
         height: 30px;
         width: 150px;
+        color:white
     }
-</style>
-
+    </style>
 {% block content %}
+    <center><h1 style="font-family:">Nuestros concesionarios</h1></center>
 <body style="background-color:#9B1B00;">
-    <center><h1>Concesionarios</h1></center>
     <center>
     <ul>
-            <table class="default">
-                <tr>
-                    <th>Concesionario</th>
-                    <th>Telefono</th>
-                    <th>Horario</th>
-                  </tr>
-            {% for Concesionario in object_list %}
-                <tr>
-                    <td>{{ ConcUbicesionario.acion }}</td>
-                    <td>{{ Concesionario.TlfConce }}</td>
-                    <td>{{ Concesionario.Horario }}</td>
-                    <td><a href="info/{{ Concesionario.Ubicacion }}.html">Ver oferta</a></td>
-                </tr>
-                <p></p>
-            {% endfor %}
+      {% for concesionario in object_list %}
+      <li> <a href="{{ concesionario.id }}">{{ concesionario.ubicacion }}</a>
+          <a href="{% url 'concesionario-update' concesionario.pk %}">Modificar</a>
+      </li>
+      {% empty %}
+      <li>No hay coches todavía.</li>
+      {% endfor %}
     </ul>
     </center>
 </body>

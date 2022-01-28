@@ -15,7 +15,7 @@
 <body style="background-color:#9B1B00;">
     <center>
     <ul>
-      <table class="default">
+      <table class="default" frame="void" rules="cols" bgcolor="white">
           <tr>
               <th>Marca</th>
               <th>Modelo</th>
@@ -29,18 +29,18 @@
                   <td>{{ coche.Modelo }}</td>
                   <td>{{ coche.Color }}</td>
                   <td>{{ coche.Extras }}</td>
-                  <td>{{ coche.precio }}</td>
+                  <td>{{ coche.precio }} €</td>
                   <td>{{ coche.Concesionarioco }}</td>
               </tr>
       </table>
       <p></p>
-      <table>
+      <table frame="void" rules="cols">
         <tr>
           <th>Foto</th>
           <th>Descripción</th>
         </tr>
         <tr>
-          <td><img src="/media/{{ coche.upload }}" width="250" height="300"></td>
+          <td><img src="/media/{{ coche.upload }}" width="400" height="300"></td>
           <td>{{ coche.descripcion }}</td>
         </tr>
       </table>

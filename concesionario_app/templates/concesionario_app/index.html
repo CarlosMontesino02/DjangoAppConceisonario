@@ -1,100 +1,55 @@
-<style>
-    table, th, td {
-      border: 1px solid black;
-    }
-    th, td{
-        height: 30px;
-        width: 150px;
-    }
-    .button {
-      border: none;
-      color: white;
-      padding: 15px 32px;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
-    }
-    .button1 {
-      background-color: #4CAF50;
-      position: absolute;
-      } /* Green */
-    .botonmenu {background-color: black;}
-    .boxhead a {
-    color: #FFFFFF;
-    text-decoration: none;
-    }
-    h1{
-      text-align: center;
-      color: black;
-      font-family: "Courier New"
-    }
-</style>
-
+<style type="text/css">
+#BarraHTML {
+background-color: #100000;
+    padding: 2px;
+    position: fixed;
+    width: 100%;
+z-index: 10000;
+}
+#BarraHTML ul{
+   list-style-type: none;
+}
+#BarraHTML li{
+   display: inline;
+   text-align: center;
+   margin: 0 0 0 0;
+}
+#BarraHTML li a {
+   padding: 2px 7px 7px 7px;
+   text-decoration: none;
+}
+#BarraHTML a{
+  color: white;
+}
+#BarraHTML li a:hover{
+   background-color: #333333;
+   color: #ffffff;
+}
+#texto{
+padding: 60px 0 0 0;
+}
+   </style>
 {% block content %}
-  <div class="botoncarrito">
-    <button class="button button1" style="float: right;"><style>
-    table, th, td {
-      border: 1px solid black;
-    }
-    th, td{
-        height: 30px;
-        width: 150px;
-    }
-    .button {
-      border: none;
-      color: white;
-      padding: 15px 32px;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
-    }
-    .button1 {
-      background-color: #4CAF50;
-      position: absolute;
-      } /* Green */
-    .botonmenu {background-color: black;}
-    .boxhead a {
-    color: #FFFFFF;
-    text-decoration: none;
-    }
-    h1{
-      text-align: center;
-      color: black;
-      font-family: "Courier New"
-    }
-</style>
-
-{% block content %}
-  <div class="botoncarrito">
-    <button class="button button1" style="float: right;">
-      <div class="boxhead">
-        <a href="{% url 'carrito' %}">Carrito</a>
-      </div>
-    </button>
-  </div>
-
-  <div class="titulo">
-    <header style="background-color:#9B1B00;">
-      <h1 style="text-align: center;">LEGENDARIOS MOTORSPORT</h1>
-    </header>
-  </div>
 
 <body style="background-color:#9B1B00;">
-  <div class="boxhead" style="text-align: center;">
-    <button class="botonmenu">
-        <a href="{% url 'coches' %}">VER NUESTROS COCHES</a>
-    </button>
-    <p></p>
-    <button class="botonmenu">
-        <a href="{% url 'concesionarios' %}">NUESTROS CONCESIONARIOS</a>
-    </button>
-        <p></p>
-    <button class="botonmenu">
-        <a href="{% url 'perfiles' %}">PERFILES</a>
-    </button>
-  </div>
-
+<div id="BarraHTML">
+<ul>
+<li><a href="{% url 'index' %}">Home</a></li>
+<li><a href="{% url 'coches' %}">Coches</a></li>
+<li><a href="{% url 'concesionarios' %}">Concesionarios</a></li>
+<li><a href="{% url 'perfiles' %}">Perfiles</a></li>
+<li><a href="{% url 'carrito' %}">Carritos</a></li>
+</ul>
+</div>
+<div id="texto">
+  <head>
+    <div class="titulo">
+      <header style="background-color:#9B1B00;">
+        <h1 style="text-align: center;">LEGENDARIOS MOTORSPORT</h1>
+      </header>
+    </div>
+  </head>
+</div>
 </body>
 {% endblock %}
+</html>
