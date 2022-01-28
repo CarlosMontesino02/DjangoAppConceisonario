@@ -3,26 +3,26 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.contrib.auth.models import User
-from django.urls import reverse
+from django.urls import reverse_lazy
 
 class Perfil(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     DNI = models.CharField(max_length=9)
-    NumTlf = models.IntegerField(null=True, blank=True)
+    NumTlf = models.IntegerField(null=True)
     Direccion = models.CharField(max_length=50)
-    fechanac = models.DateField(null=True, blank=True)
+    fechanac = models.DateField(null=True)
     def __str__(self):
         return self.DNI
 
 class Concesionario(models.Model):
-    Ubicacion = models.CharField(max_length=60)
-    TlfConce = models.IntegerField()
-    Horario = models.CharField(max_length=50)
+    ubicacion = models.CharField(max_length=60)
+    tlfconce = models.IntegerField()
+    horario = models.CharField(max_length=50)
+    map = models.ImageField(upload_to ='img/conce')
     def __str__(self):
-        return self.Ubicacion
+        return self.ubicacion
 
 class Coche(models.Model):
-    Concesionarioco = models.ForeignKey(Concesionario, on_delete=models.CASCADE)
     Marca = models.CharField(max_length=30)
     Modelo = models.CharField(max_length=30)
     Color = models.CharField(max_length=11)
