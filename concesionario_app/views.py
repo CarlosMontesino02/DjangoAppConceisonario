@@ -5,9 +5,13 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic.edit import CreateView
 from django.urls import reverse_lazy
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
+from django.contrib.auth.forms import UserCreationForm
 from concesionario_app.models import Author
 from django.views.generic import DetailView
 from django.views.generic.edit import FormView
+from concesionario_app.forms import PerfilForm
+from django.contrib.auth import login, authenticate
+from django.shortcuts import get_object_or_404, redirect
 
 
 class cochecreateview(CreateView):
@@ -18,7 +22,6 @@ class cochecreateview(CreateView):
 class cocheUpdateView(UpdateView):
     model = Coche
     fields = ['Concesionarioco','Marca','Modelo','Color','Extras','precio','upload','descripcion']
-    success_url = reverse_lazy('coches')
 
 class concesionariocreateview(CreateView):
     model = Concesionario
@@ -28,7 +31,6 @@ class concesionariocreateview(CreateView):
 class concesionarioUpdateView(UpdateView):
     model = Concesionario
     fields = ['ubicacion','tlfconce','horario','map']
-    success_url = reverse_lazy('concesionarios')
 
 class registro(CreateView):
     model = Perfil
@@ -62,3 +64,25 @@ class perfiles_detalles(DetailView):
 
 def index (request):
     return render(request, 'concesionario_app/index.html')
+
+#registro
+def RegistroUsuario(request):
+	if request.method == "POST":
+		UForm = UserCreationForm(request.POST)
+		PForm = PerfilForm(request.POST)
+		if UForm.is_valid() and PForm.is_valid():
+			Usuario = UForm.save(commit=False)
+			Perfil = PForm.save(commit=False)
+			Perfil.user = Usuario
+			UForm.save()
+			PForm.save()
+			username = UForm.cleaned_data['username']
+			password = UForm.cleaned_data['password1']
+			user = authenticate(username=username, password=password)
+			login(request, user)
+			return redirect('index')
+	else:
+		UForm = UserCreationForm
+		PForm = PerfilForm
+
+	return render(request, 'registration/registro.html', {'UForm': UForm, 'PForm': PForm})
