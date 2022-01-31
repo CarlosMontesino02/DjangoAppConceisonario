@@ -1,0 +1,57 @@
+<style type="text/css">
+#BarraHTML {
+background-color: #100000;
+    padding: 1px;
+    position: relative;
+    width: 100%;
+z-index: 10000;
+}
+#BarraHTML ul{
+   list-style-type: none;
+}
+#BarraHTML li{
+   display: inline;
+   text-align: center;
+   margin: 0 0 0 0;
+}
+#BarraHTML li a {
+   padding: 2px 7px 7px 7px;
+   text-decoration: none;
+}
+#BarraHTML a{
+  color: white;
+}
+#BarraHTML li a:hover{
+   background-color: #333333;
+   color: #ffffff;
+}
+#texto{
+padding: 60px 0 0 0;
+}
+   </style>
+{% block content %}
+
+<body style="background-color:#9B1B00;">
+<div id="BarraHTML">
+<ul>
+<li><a href="{% url 'index' %}">Home</a></li>
+<li><a href="{% url 'coches' %}">Coches</a></li>
+<li><a href="{% url 'concesionarios' %}">Concesionarios</a></li>
+<li><a href="{% url 'perfiles' %}">Perfiles</a></li>
+<li><a href="{% url 'carrito' %}">Carritos</a></li>
+<li style="float:right"><a href="{% url 'user-add' %}">Registrarse</a></li>
+</ul>
+</div>
+<body>
+	<h1>Registro:</h1>
+	<form method="POST" action="{% url 'user-add' %}">
+		{% csrf_token %}
+		{{ UForm }}
+		{{ PForm }}
+		<div>
+			<button type="submit" value="Registro">Registro</button>
+		</div>
+
+	</form>
+</body>
+{% endblock %}
