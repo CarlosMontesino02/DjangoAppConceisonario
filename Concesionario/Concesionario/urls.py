@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from concesionario_app.views import carritos, ofertadecoches, index, perfiles, concesionarios
-from concesionario_app.views import carritos_detalles, ofertadecoches_detalles, perfiles_detalles, concesionarios_detalles
+from concesionario_app.views import carritos_detalles, ofertadecoches_detalles, perfiles_detalles, concesionarios_detalles, RegistroUsuario
 from concesionario_app.views import concesionarios_detalles, cochecreateview, registro, cocheUpdateView, concesionariocreateview, concesionarioUpdateView
 from django.conf.urls.static import static
 from django.conf import settings
@@ -30,7 +30,7 @@ urlpatterns = [
     path('concesionarios/<int:pk>/update', concesionarioUpdateView.as_view(), name='concesionario-update'),
     path('admin/', admin.site.urls),
     path('coches/', ofertadecoches.as_view(), name="coches"),
-    path('', index, name="index"),
+    path('', index, name='index'),
     path('concesionarios/', concesionarios.as_view(), name="concesionarios"),
     path('carritos/', carritos.as_view(), name="carrito"),
     path('perfiles/', perfiles.as_view(), name="perfiles"),
@@ -39,4 +39,9 @@ urlpatterns = [
     path('perfiles_detalles/', perfiles_detalles.as_view(), name="perfiles_detalles"),
     #path('coches_detalles/', ofertadecoches_detalles.as_view(), name="coches_detalles"),
     path('coches/<int:pk>/', ofertadecoches_detalles.as_view(), name='coches_detalles'),
+
+    #registro
+    path('registrar/', RegistroUsuario, name='user-add'),
+
+	#Add Django site authentication urls (for login, logout, password m
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
